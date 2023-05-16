@@ -1,0 +1,15 @@
+SQL query to list descriptive statistics (min, max, average, mode, count) of film table attributes
+
+-- descriptive statistics of the FILM table:
+SELECT  MIN(release_year) AS minimum_value_release_year,
+        MAX(release_year) AS maximum_value_release_year,
+        AVG(release_year) AS avg_value_release_year,
+        MIN(rental_duration) AS minimum_value_rental_duration,
+        MAX(rental_duration) AS maximum_value_rental_duration,
+        AVG(rental_duration) AS avg_value_rental_duration,
+        -- mode is calculated as...
+        MODE() WITHIN GROUP (ORDER BY title) AS modal_value_title,
+        MODE() WITHIN GROUP (ORDER BY rating) AS modal_value_rating,
+        -- counting number of films
+        COUNT(film_id) AS count_films
+FROM film;
