@@ -1,9 +1,0 @@
-SQL query checking for duplicates
-
--- check for duplicates
-SELECT  customer_id, 
-	store_id, 
-	COUNT(*)
-FROM customer
-GROUP BY 1, 2 
-HAVING COUNT(*) > 1;
